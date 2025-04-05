@@ -1,10 +1,16 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
+const versions = require('./versions.json');
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const math = require('remark-math');
 const katex = require('rehype-katex');
+
+function getNextVersionName() {
+  return versions[0];
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
 
@@ -57,7 +63,9 @@ const config = {
             [katex, { strict: false }],
           ],
           showLastUpdateAuthor: true,
-          showLastUpdateTime: true
+          showLastUpdateTime: true,
+          lastVersion: getNextVersionName(),
+          onlyIncludeVersions: versions
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -107,6 +115,7 @@ const config = {
 
       },
       navbar: {
+        hideOnScroll: true,
         title: 'AISP',
         logo: {
           alt: 'AISP',
@@ -114,7 +123,7 @@ const config = {
         },
 
         items: [
-
+          // Left
           {
             type: 'doc',
             docId: 'intro',
@@ -122,14 +131,26 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/AIS-Package/aisp',
-            label: 'GitHub',
+            href: 'https://github.com/AIS-Package/aisp/issues',
+            label: 'Issues',
+            position: 'left'
+          },
+
+          // Right
+          {
+            type: 'docsVersionDropdown',
             position: 'right',
+            dropdownActiveClassDisabled: false,
           },
           {
             type: 'localeDropdown',
             position: 'right',
           },
+          {
+            href: 'https://github.com/AIS-Package/aisp',
+            label: 'GitHub',
+            position: 'right',
+          }
         ],
       },
       footer: {

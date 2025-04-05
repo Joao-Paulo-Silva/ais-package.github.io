@@ -1,0 +1,98 @@
+---
+sidebar_position: 1
+title: Negative Selection Base
+sidebar_label: Negative Selection
+lastUpdatedAt: 2025/04/04
+author: João Paulo
+---
+
+# NSA._base Class
+
+The ``_Base`` class contains utility functions with the ``protected`` modifier that can be inherited by various classes for ease of use. It includes functions for distance calculation, data separation to improve training and prediction efficiency, accuracy measurement and other functions.
+
+## Protected Functions:
+
+---
+
+### def _distance(...):
+
+```python
+def _distance(self, u: npt.NDArray, v: npt.NDArray)
+```
+
+Function to calculate the distance between two points by the chosen ``metric``.
+
+**Parameters**:
+* ***u*** (``npt.NDArray``): Coordinates of the first point.
+* ***v*** (``npt.NDArray``): Coordinates of the second point.
+
+**returns**:
+* Distance (``double``) between the two points.
+
+---
+
+### def _check_and_raise_exceptions_fit(...):
+```python
+def _check_and_raise_exceptions_fit(self, X: npt.NDArray = None, y: npt.NDArray = None, _class_: Literal['RNSA', 'BNSA'] = 'RNSA')
+```
+Function responsible for verifying fit function parameters and throwing exceptions if the verification is not successful.
+
+**Parameters**:
+* ***X*** (``npt.NDArray``): Training array, containing the samples and their characteristics, [``N samples`` (rows)][``N features`` (columns)].
+* ***y*** (``npt.NDArray``): Array of target classes of ``X`` with [``N samples`` (lines)].
+* ***_class_*** (Literal[RNSA, BNSA], optional): Current class. Defaults to 'RNSA'.
+
+---
+
+### def _score(...)
+
+```python
+def _score(self, X: npt.NDArray, y: list) -> float
+```
+Score function calculates forecast accuracy.
+
+This function performs the prediction of X and checks how many elements are equal between vector y and y_predicted. 
+This function was added for compatibility with some scikit-learn functions.
+
+**Parameters**:
++ ***X***: np.ndarray
+    Feature set with shape (n_samples, n_features).
++ ***y***: np.ndarray
+    True values with shape (n_samples,).
+
+**Returns**:
+
++ accuracy: float
+    The accuracy of the model.
+
+---
+
+## Abstract methods
+
+### def fit(...)
+
+```python
+def fit(self, X: npt.NDArray, y: npt.NDArray, verbose: bool = True)
+```
+
+Fit the model to the training data.
+
+Implementation:
+
+- [RNSA](/docs/aisp-techniques/Negative%20Selection/rnsa#function-fit)
+- [BNSA](/docs/aisp-techniques/Negative%20Selection/bnsa#function-fit)
+
+
+
+### def predict(...)
+
+```python
+def predict(self, X) -> Optional[npt.NDArray]:
+```
+
+Performs label prediction for the given data.
+
+Implementation:
+
+- [RNSA](/docs/aisp-techniques/Negative%20Selection/rnsa#function-predict)
+- [BNSA](/docs/aisp-techniques/Negative%20Selection/bnsa#function-predict)
