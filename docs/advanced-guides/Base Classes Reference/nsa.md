@@ -12,7 +12,7 @@ The ``_Base`` class contains utility functions with the ``protected`` modifier t
 
 ---
 
-### def score(...)
+### Function score(...)
 
 ```python
 def score(self, X: npt.NDArray, y: list) -> float
@@ -32,13 +32,17 @@ This function was added for compatibility with some scikit-learn functions.
 
 + accuracy: ``float`` The accuracy of the model.
 
+:::note
+This score uses the [**accuracy_score**](/docs/advanced-guides/Utils/Metrics#function-accuracy_score) function.
+:::
+
 ---
 
 ## Protected Functions:
 
 ---
 
-### def _distance(...):
+### Function _distance(...):
 
 ```python
 def _distance(self, u: npt.NDArray, v: npt.NDArray)
@@ -55,7 +59,7 @@ Function to calculate the distance between two points by the chosen ``metric``.
 
 ---
 
-### def _check_and_raise_exceptions_fit(...):
+### Function _check_and_raise_exceptions_fit(...):
 ```python
 def _check_and_raise_exceptions_fit(self, X: npt.NDArray = None, y: npt.NDArray = None, _class_: Literal['RNSA', 'BNSA'] = 'RNSA')
 ```
@@ -70,7 +74,7 @@ Function responsible for verifying fit function parameters and throwing exceptio
 
 ## Abstract methods
 
-### def fit(...)
+### Function fit(...)
 
 ```python
 def fit(self, X: npt.NDArray, y: npt.NDArray, verbose: bool = True)
@@ -85,7 +89,7 @@ Implementation:
 
 
 
-### def predict(...)
+### Function predict(...)
 
 ```python
 def predict(self, X) -> Optional[npt.NDArray]:

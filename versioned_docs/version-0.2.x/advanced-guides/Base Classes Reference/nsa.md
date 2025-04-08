@@ -10,11 +10,39 @@ author: João Paulo
 
 The ``_Base`` class contains utility functions with the ``protected`` modifier that can be inherited by various classes for ease of use. It includes functions for distance calculation, data separation to improve training and prediction efficiency, accuracy measurement and other functions.
 
+---
+
+### Function score(...)
+
+```python
+def score(self, X: npt.NDArray, y: list) -> float
+```
+Score function calculates forecast accuracy.
+
+This function performs the prediction of X and checks how many elements are equal between vector y and y_predicted. 
+This function was added for compatibility with some scikit-learn functions.
+
+**Parameters**:
++ ***X***: ``np.ndarray``
+    Feature set with shape (n_samples, n_features).
++ ***y***: ``np.ndarray``
+    True values with shape (n_samples,).
+
+**Returns**:
+
++ accuracy: ``float`` The accuracy of the model.
+
+:::note
+This score uses the [**accuracy_score**](/docs/advanced-guides/Utils/Metrics#function-accuracy_score) function.
+:::
+
+---
+
 ## Protected Functions:
 
 ---
 
-### def _distance(...):
+### Function _distance(...):
 
 ```python
 def _distance(self, u: npt.NDArray, v: npt.NDArray)
@@ -31,7 +59,7 @@ Function to calculate the distance between two points by the chosen ``metric``.
 
 ---
 
-### def _check_and_raise_exceptions_fit(...):
+### Function _check_and_raise_exceptions_fit(...):
 ```python
 def _check_and_raise_exceptions_fit(self, X: npt.NDArray = None, y: npt.NDArray = None, _class_: Literal['RNSA', 'BNSA'] = 'RNSA')
 ```
@@ -44,32 +72,9 @@ Function responsible for verifying fit function parameters and throwing exceptio
 
 ---
 
-### def _score(...)
-
-```python
-def _score(self, X: npt.NDArray, y: list) -> float
-```
-Score function calculates forecast accuracy.
-
-This function performs the prediction of X and checks how many elements are equal between vector y and y_predicted. 
-This function was added for compatibility with some scikit-learn functions.
-
-**Parameters**:
-+ ***X***: np.ndarray
-    Feature set with shape (n_samples, n_features).
-+ ***y***: np.ndarray
-    True values with shape (n_samples,).
-
-**Returns**:
-
-+ accuracy: float
-    The accuracy of the model.
-
----
-
 ## Abstract methods
 
-### def fit(...)
+### Function fit(...)
 
 ```python
 def fit(self, X: npt.NDArray, y: npt.NDArray, verbose: bool = True)
@@ -84,7 +89,7 @@ Implementation:
 
 
 
-### def predict(...)
+### Function predict(...)
 
 ```python
 def predict(self, X) -> Optional[npt.NDArray]:

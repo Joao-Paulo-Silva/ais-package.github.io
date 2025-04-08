@@ -8,7 +8,10 @@ author: João Paulo
 
 The metrics file provides utilities to measure, analyze, and compare the performance of the package's algorithms in a standardized way.
 
-#### def accuracy_score(...)
+### Function accuracy_score(...)
+
+Function to calculate precision accuracy based on lists of true labels and
+predicted labels.
 
 ```python
 def accuracy_score(
@@ -17,8 +20,22 @@ def accuracy_score(
 ) -> float
 ```
 
-Function to calculate precision accuracy based on lists of true labels and
-predicted labels.
+**Accuracy Equation:**
+
+The accuracy is defined by the following formula:
+
+$$
+{
+\text{Accuracy} = \frac{\sum_{i=1}^{n} (y_i = \hat{y}_i)}{n} 
+    = \frac{\text{Correct Predictions}}{\text{Total Number}}
+}
+$$
+
+**Term Definitions**
+- $y_i$: the true label for instance i (y_true).
+- $\hat{y}_i$: the predicted label for instance i (y_pred).
+
+---
 
 **Parameters**:
 * **_y_true_** (``Union[npt.NDArray, list]``): Ground truth (correct) labels.

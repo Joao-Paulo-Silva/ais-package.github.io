@@ -70,8 +70,7 @@ class AIRS(
 
     Defaults to ``'euclidean'``.
     
-* *algorithm* (``Literal["continuous-features", "binary-features"]``): [description].
-        Defaults to "continuous-features".
+* *algorithm* (``Literal["continuous-features", "binary-features"]``): Defines the version of the algorithm to be used, according to the data type, continuous or binary. The default is "continuous-features".
 * *seed* (``int``): Seed for the random generation of detector values. Defaults to None.
 
 - ``**kwargs``:
@@ -100,7 +99,7 @@ The function ``fit(...)``, performs the training according to ``X`` and ``y``, u
 
 ### Function predict(...)
 
-Function to perform the prediction of classes based on detectors created after training.
+Function to perform the prediction of classes based on memory cell created after training.
 
 ``` python
 def predict(self, X: npt.NDArray) -> Optional[npt.NDArray]

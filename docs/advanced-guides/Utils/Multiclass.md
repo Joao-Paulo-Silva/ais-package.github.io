@@ -8,7 +8,7 @@ author: João Paulo
 
 This file contains internal utility functions designed to simplify data manipulation and processing in multiclass classification scenarios within the AISP package.
 
-### def slice_index_list_by_class(...)
+### Function slice_index_list_by_class(...)
 
 ```python
 def slice_index_list_by_class(classes: Union[npt.NDArray, list], y: npt.NDArray) -> dict

@@ -6,9 +6,18 @@ const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const math = require('remark-math');
 const katex = require('rehype-katex');
+const isDev = process.env.NODE_ENV === 'development';
 
 function getNextVersionName() {
   return versions[0];
+}
+
+function getVersions() {
+  if (isDev) {
+    return ['current', ...versions];
+  }
+
+  return versions;
 }
 
 /** @type {import('@docusaurus/types').Config} */
@@ -64,8 +73,8 @@ const config = {
           ],
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          lastVersion: getNextVersionName(),
-          onlyIncludeVersions: versions
+          lastVersion: isDev ? 'current' : getNextVersionName(),
+          onlyIncludeVersions: getVersions(),
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
