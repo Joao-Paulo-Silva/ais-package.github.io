@@ -1,7 +1,7 @@
 ---
 id: airs
 title: AIRS
-sidebar_label: AIRS - Artificial Immune Recognition System
+sidebar_label: AIRS - Sistema Imunológico Artificial de Reconhecimento
 sidebar_position: 1
 pagination_next: null
 keywords:

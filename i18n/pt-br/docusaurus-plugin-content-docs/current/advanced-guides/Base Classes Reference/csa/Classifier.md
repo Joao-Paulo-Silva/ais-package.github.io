@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-title: Artificial Immune Recognition System Base
-sidebar_label: Artificial Immune Recognition System
+title: Base de Sistema Imunológico Artificial de Reconhecimento
+sidebar_label: Sistema Imunológico Artificial de Reconhecimento
 lastUpdatedAt: 2025/04/07
 author: João Paulo
 ---

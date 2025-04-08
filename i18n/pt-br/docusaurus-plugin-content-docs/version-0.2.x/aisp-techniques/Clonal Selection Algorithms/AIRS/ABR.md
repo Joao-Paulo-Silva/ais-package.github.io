@@ -1,7 +1,7 @@
 ---
 id: abr
 title: ABR
-sidebar_label: ABR - Artificial Recognition Ball
+sidebar_label: ABR - Bolha de reconhecimento artificial
 sidebar_position: 1
 keywords:
   - Binary
@@ -15,7 +15,7 @@ lastUpdatedAt: 2025/04/05
 author: João Paulo
 ---
 
-## ABR (Artificial Recognition Ball)
+## ABR (Bolha de reconhecimento artificial)
 
 Individuo do conjunto de células reconhecedoras (ABR), herda características de uma célula-B, adicionando o consumo de recursos
 

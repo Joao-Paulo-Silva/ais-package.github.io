@@ -1,7 +1,7 @@
 ---
 id: cell
 title: Cell
-sidebar_label: Cell - Memory B-cell
+sidebar_label: Cell - Célula-B de memoria
 sidebar_position: 2
 pagination_next: null
 keywords:
